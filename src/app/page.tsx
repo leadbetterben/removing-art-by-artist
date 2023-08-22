@@ -4,10 +4,16 @@ import { Scopes, SearchResults, SpotifyApi } from '@spotify/web-api-ts-sdk';
 import { useEffect, useState } from 'react';
 
 function Home() {
-  console.log(process.env.SPOTIFY_CLIENT_ID); // Logs correct client ID
+  const client_id: string = process.env.SPOTIFY_CLIENT_ID || "error";
+  console.log(client_id); // Logs correct client ID
+
+  const redirect_uri: string = process.env.SPOTIFY_REDIRECT_URI || "error";
+  console.log(redirect_uri); // Logs correct redirect URI
+
+
   const spotifyApi = SpotifyApi.withUserAuthorization(
-    process.env.SPOTIFY_CLIENT_ID || "",
-    process.env.SPOTIFY_REDIRECT_URI || "",
+    client_id,
+    redirect_uri,
     Scopes.userDetails
   );
   
