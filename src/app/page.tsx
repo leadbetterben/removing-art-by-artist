@@ -4,10 +4,10 @@ import { Scopes, SearchResults, SpotifyApi } from '@spotify/web-api-ts-sdk';
 import { useEffect, useState } from 'react';
 
 function Home() {
-  const client_id: string = process.env.SPOTIFY_CLIENT_ID || "error";
+  const client_id: string = process.env.SPOTIFY_CLIENT_ID || "error_client_id";
   console.log(client_id); // Logs correct client ID
 
-  const redirect_uri: string = process.env.SPOTIFY_REDIRECT_URI || "error";
+  const redirect_uri: string = process.env.SPOTIFY_REDIRECT_URI || "error_redirect_uri";
   console.log(redirect_uri); // Logs correct redirect URI
 
   // Giving the client ID and redirect URI as "error" suggesting process.env is empty
