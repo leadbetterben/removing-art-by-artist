@@ -10,7 +10,7 @@ function Home() {
   const redirect_uri: string = process.env.SPOTIFY_REDIRECT_URI || "error";
   console.log(redirect_uri); // Logs correct redirect URI
 
-
+  // Giving the client ID and redirect URI as "error" suggesting process.env is empty
   const spotifyApi = SpotifyApi.withUserAuthorization(
     client_id,
     redirect_uri,
