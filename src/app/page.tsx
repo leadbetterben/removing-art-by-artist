@@ -2,6 +2,7 @@
 
 import { Scopes, SearchResults, SpotifyApi } from '@spotify/web-api-ts-sdk';
 import { useEffect, useState } from 'react';
+import { useSpotify } from './hooks/useSpotify';
 
 function Home() {
   const client_id: string = process.env.SPOTIFY_CLIENT_ID || "error_client_id";
@@ -11,7 +12,7 @@ function Home() {
   console.log(redirect_uri); // Logs correct redirect URI
 
   // Giving the client ID and redirect URI as "error" suggesting process.env is empty
-  const spotifyApi = SpotifyApi.withUserAuthorization(
+  const spotifyApi = useSpotify(
     client_id,
     redirect_uri,
     Scopes.userDetails
